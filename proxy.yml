@@ -13,7 +13,7 @@ data:
       server {
           listen       80;
           server_name  _;
-          location / {
+          location {
               proxy_pass http://192.168.49.2:32330/;
               proxy_set_header Host $host;
           }

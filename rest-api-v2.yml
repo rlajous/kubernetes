@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-rest-api-example
+  name: nodejs-rest-api-example-v2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      version: v1
+      version: v2
   template:
     metadata:
       labels:
-        version: v1
+        version: v2
     spec:
       containers:
       - name: nodejs-rest-api-example
-        image: femartin/nodejs-rest-api-example
+        image: femartin/nodejs-rest-api-example:new
         ports:
-        - containerPort: 4000
+        - containerPort: 5000
+
+
