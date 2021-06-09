@@ -16,15 +16,20 @@ app.use(bodyParser.json({
    parameterLimit: 100000,
    extended: true 
  }));
+
+app.get('/version', (req, res) => {
+  res.send("This is a new version\n");
+   
+})
+
+
 app.get('/', (req, res) => {
 
    //await new Promise(resolve => setTimeout(resolve, 1000));
    User.find().then(result => {
-      console.log(result)
       res.send(result);
     })
     .catch(err => {
-      console.log(err);
       res.send("Error\n")
     });
    
@@ -43,9 +48,19 @@ app.get('/:id', (req, res) => {
     });
 })
 
-app.post('/',  (req, res) => {
-   const { error } = validate(req.body);
-   if (error) return res.status(400).send(error.details[0].message);
+app.post('/', async (req, res) => {
+  /*const { error } = validate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  let user = await User.findOne({ email: req.body.email });
+  if(user) return res.status(400).send("El email ya se encuentra registrado.");   
+
+  user = new User(req.body);
+  await user.save();
+  res.status(200).send(user);*/
+
+  
+
    User.find({ email: req.body.email }).then(result => {
       console.log(result, result.length);
       if (result.length !== 0) return res.status(400).send("El email ya se encuentra registrado.");   
