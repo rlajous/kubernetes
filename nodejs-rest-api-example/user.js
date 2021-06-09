@@ -17,7 +17,6 @@ const userSchema = new Schema({
   timestamp: { type: Date, default: Date.now }
 });
 
-
 const User = mongoose.model("User", userSchema);
 
 function validateUserSchema(user) {
