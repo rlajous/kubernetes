@@ -16,6 +16,6 @@ spec:
       - name: nodejs-rest-api-example
         image: femartin/nodejs-rest-api-example:new
         ports:
-        - containerPort: 5000
+        - containerPort: 4000
 
 
