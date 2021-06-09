@@ -1,4 +1,10 @@
-# kubernete
+# Kubernetes
+
+## Instalacion
+
+* [Docker](https://docs.docker.com/engine/install/)
+* [Minikube](https://minikube.sigs.k8s.io/docs/start/)
+* [TP Redes](https://github.com/rlajous/kubernetes)
 
 Paso a paso:
 
@@ -9,6 +15,18 @@ Paso a paso:
 2- Aplicamos el rest-api.yml
 
 	kubectl apply -f rest-api.yml
+
+3- Aplicamos el service.yml
+
+	kubectl apply -f service.yml
+
+4- Aplicamos el proxy.yml.yml
+
+	kubectl apply -f proxy.yml.yml
+
+5- Aplicamos el rest-api-v2.yml
+
+	kubectl apply -f rest-api-v2.yml
 
 Opcional:
 
